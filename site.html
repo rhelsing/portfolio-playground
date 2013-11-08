@@ -1,0 +1,31 @@
+<head>
+  <title>portfolio-playground</title>
+</head>
+
+<body>
+  {{> site}}
+</body>
+
+<template name="site">
+  	{{#each portfolios}}
+		{{name}}:: Available to invest: ${{amount}} / Value of account: ${{sum}} <button id="{{_id}}" class='edit btn'>Edit</button> <button id="{{_id}}" class='delete btn'>Delete</button> <button id="{{_id}}" class='manage btn'>Manage Portfolio</button><br />
+	{{/each}}
+	<br>
+	<button id="new" class="btn">New Portfolio</button>
+	<div id="edit_modal">
+		<input type="text" id="name" placeholder="Name" /><br>
+		<input type="text" id="amount" placeholder="Amount" /><br>
+		<input type="text" id="fee" placeholder="Fee" /><br>
+		<input type="hidden" id="method" value="" />
+		<button id="save" class="btn btn-success">Save</button> <button id="cancel" class="btn">Cancel</button>
+	</div>
+	<div id="shares_modal">
+		{{#each holdings}}
+			{{symbol}}: {{number}}<br>
+		{{/each}}
+		<br>
+		<input type="text" id="symbol" placeholder="Symbol" /><br>
+		<input type="text" id="number" placeholder="Number" /><br>
+		<button id="add" class="btn btn-success">Add</button>
+	</div>
+</template>

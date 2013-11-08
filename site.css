@@ -1,0 +1,22 @@
+/* CSS declarations go here */
+body{
+	margin: 1em;
+}
+#edit_modal{
+	display: none;
+	position: absolute;
+	background: #555;
+	padding: 2em;
+	margin-top: 1em;
+	left: 40%;
+	top: 10%;
+}
+#shares_modal{
+	position: absolute;
+	background: #555;
+	padding: 2em;
+	margin-top: 1em;
+	left: 70%;
+	top: 10%;
+	color: #fff;
+}
