@@ -60,14 +60,16 @@ if (Meteor.isClient) {
     Portfolios.update(index ,{$set: {sum:sum}});
   };
 
+  //SEE http://jsfiddle.net/6EFqk/1/
+
   function updateSymbol(symbol, portfolio, elm, number){
     //update
     var newPrice;
     $.ajax({
       type: 'GET',
-      url: "http://query.yahooapis.com/v1/public/yql?q=select%20%2a%20from%20yahoo.finance.quotes%20WHERE%20symbol=%27"+symbol+"%27&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys",
+      url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D%22' + symbol + '%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=",
       dataType: 'json',
-      success: function(data) { newPrice = data.query.results.quote.Ask; },
+      success: function(data) { newPrice = data.query.results.quote.Ask;  },
       data: {},
       async: false
     });
